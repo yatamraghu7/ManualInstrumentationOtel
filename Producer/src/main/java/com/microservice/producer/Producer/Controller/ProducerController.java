@@ -11,4 +11,14 @@ public class ProducerController {
 		return "Hello from Producer!";
 	}
 
+	
+	@GetMapping("/hello/fromRestTemplate")
+	public String sayHelloToRestPeople() {
+		return "Hello from Producer! You used Rest Template Communication.";
+	}
+	
+	@GetMapping("/hello/fromWebClient")
+	public String sayHelloUsingWebClient() {
+		return "Hello from Producer!You used Web Client Communication";
+	}
 }
