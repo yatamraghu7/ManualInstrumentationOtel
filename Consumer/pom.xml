@@ -52,7 +52,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-
 		<!-- Tracing -->
 		<dependency>
 			<groupId>io.opentelemetry.instrumentation</groupId>
@@ -64,8 +63,12 @@
 			<artifactId>opentelemetry-spring-webflux-5.3</artifactId>
 			<version>2.7.0-alpha</version>
 		</dependency>
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-extension-trace-propagators</artifactId>
+			<version>1.42.1</version>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
