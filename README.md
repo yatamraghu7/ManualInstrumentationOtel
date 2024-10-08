@@ -41,7 +41,7 @@ WebSocket Communication between microservices instrumentation is in progress [To
 
 Testing with Curls can be done as below:
 
-curl -v -X GET http://localhost:8080/consume/usingWebClient \
+curl -v -X GET http://localhost:9999/consume/usingWebClient \
 -H 'accept: */*' \
 -H 'Content-Type: application/json' \
 -H 'X-B3-TraceId: 01011111001110102222222222222222' \
@@ -50,7 +50,7 @@ curl -v -X GET http://localhost:8080/consume/usingWebClient \
 -H 'X-B3-Sampled: 1'
 
 
-curl -v -X GET http://localhost:8080/consume/usingWebClient \
+curl -v -X GET http://localhost:9999/consume/usingWebClient \
 -H 'accept: */*' \
 -H 'Content-Type: application/json' \
 -H 'X-B3-TraceId: 01011111001110102222222222222222' \
