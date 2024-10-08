@@ -18,12 +18,12 @@ public class ConsumerController {
 
 	public ConsumerController(WebClient.Builder webClientBuilder, RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
-		this.webClient = webClientBuilder.baseUrl("http://localhost:8081").build();
+		this.webClient = webClientBuilder.baseUrl("http://localhost:9911").build();
 	}
 
 	@GetMapping("/consume")
 	public String consumeHello() {
-		String response = restTemplate.getForObject("http://localhost:8081/hello/fromRestTemplate", String.class);
+		String response = restTemplate.getForObject("http://localhost:9911/hello/fromRestTemplate", String.class);
 		log.info(
 				"This is a call happend from consumeHello method to producer class controller method i.e. sayHelloToRestPeople");
 		log.debug(
