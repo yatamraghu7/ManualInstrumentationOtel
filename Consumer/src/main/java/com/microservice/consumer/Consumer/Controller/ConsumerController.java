@@ -1,20 +1,16 @@
 package com.microservice.consumer.Consumer.Controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import io.opentelemetry.api.trace.Span;
-import io.opentelemetry.api.trace.SpanContext;
+import com.microservice.consumer.Consumer.Controllercom.microservice.consumer.Consumer.utils.CustomLogger;
 
 @RestController
 public class ConsumerController {
 
-	private static final Logger log = LoggerFactory.getLogger(ConsumerController.class);
+	private final CustomLogger log = new CustomLogger(ConsumerController.class);
 
 	protected final RestTemplate restTemplate;
 
@@ -37,14 +33,6 @@ public class ConsumerController {
 
 	@GetMapping("/consume/usingWebClient")
 	public String consume() {
-	    String mdcTraceId = MDC.get("trace_id");
-	    String mdcSpanId = MDC.get("span_id");
-		Span span = Span.current();
-		SpanContext context = span.getSpanContext();
-		String traceId = context.getTraceId();
-		String spanId = context.getSpanId();
-		log.info("The generated traceId and spanId will be [{}] and [{}]", traceId, spanId);
-		log.info("The retrieved MDC traceId and spanId will be [{}] and [{}]", mdcTraceId, mdcSpanId);
 		log.info(
 				"This is a call going to happen from consume method to producer class controller method i.e. sayHelloUsingWebClient");
 		log.debug(

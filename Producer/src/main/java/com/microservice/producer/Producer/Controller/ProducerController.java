@@ -1,14 +1,14 @@
 package com.microservice.producer.Producer.Controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.microservice.producer.Producer.Utils.CustomLogger;
 
 @RestController
 public class ProducerController {
 
-	private static final Logger log = LoggerFactory.getLogger(ProducerController.class);
+	private final CustomLogger log = new CustomLogger(ProducerController.class);
 
 	@GetMapping("/hello")
 	public String sayHello() {
